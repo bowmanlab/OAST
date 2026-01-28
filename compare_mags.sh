@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## conda activate anvio-9
+## conda activate anvio-8
 
 ncbi-genome-download --assembly-level all \
 					archaea \
@@ -64,9 +64,13 @@ anvi-get-sequences-for-gene-clusters -p anme2a_genomes_compare/anme2a_genomes_co
 									 --force-overwrite \
                                      --output-file anme2a_genomes_compare/anme2a_genomes_compare-SCGs.fa
 									 
+## this command requires anvio-9, which is incompatible with ncbi-genome-download, not using output of this anyway
+
 anvi-export-gene-clusters \
   -p anme2a_genomes_compare/anme2a_genomes_compare-PAN.db \
   -o anme2a_genomes_compare/gene_clusters.tsv
+
+## rest is anvio-8
 									 
 trimal -in anme2a_genomes_compare/anme2a_genomes_compare-SCGs.fa \
        -out anme2a_genomes_compare/anme2a_genomes_compare-SCGs-trim.fa \
